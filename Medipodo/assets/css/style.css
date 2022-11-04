@@ -735,13 +735,6 @@ section {
 }
 
 /*--------------------------------------------------------------
-# CALENDAR
---------------------------------------------------------------*/
-.calendar_sec .container-fluid .row .calendar{
-  position: relative;
-  margin-left: 13% !important;
-}
-/*--------------------------------------------------------------
 # BUSCADOR
 --------------------------------------------------------------*/
 .buscador{
@@ -762,6 +755,11 @@ section {
   border-radius: 40px;
   padding: 0px 10px 0px 50px; 
   font-size: 16px;
+}
+.tabla{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-search{
@@ -792,7 +790,7 @@ section {
 }
 .content-table th,
 .content-table td{
-  padding: 12px 70px;
+  padding: 12px 40px;
 }
 
 .content-table tbody tr{

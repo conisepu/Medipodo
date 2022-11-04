@@ -45,7 +45,42 @@ function closeModal() {
 // Function to CLOSE modal
 function outsideClick(e) {
   if(e.target == modal) {
-    modal.style.display = "none";
+    modal.style.display = "none";    
   }
 }
 
+///////////////////////////////////////////////////////////
+
+// const modalCalendar = document.getElementById('modalCalendar');
+// All page modals
+var modals = document.querySelectorAll('.modalCalendar');
+// Get open modal button
+const modalBtnCalendar = document.querySelectorAll('.date');
+// Get close button
+const closeBtnCalendar = document.getElementsByClassName('closeBtnCalendar')[0];
+
+// Listen 	for OPEN Click
+modalBtnCalendar.forEach(function(e) {
+e.addEventListener('click', openModal);
+})
+// Listen for CLOSE Click
+closeBtnCalendar.addEventListener('click', closeModalCalendar);
+// Listen for OUTSIDE Click
+window.addEventListener('click', outsideClickCalendar);
+
+// Function to OPEN modal
+// function openModal() {
+//   modalCalendar.style.display = "block";
+// }
+
+// Function to CLOSE modal
+function closeModalCalendar() {
+  modalCalendar.style.display = "none";
+}
+// Function to CLOSE modal
+function outsideClickCalendar(e) {
+  if(e.target == modalCalendar) {
+    
+    modalCalendar.style.display = "none";
+  }
+}

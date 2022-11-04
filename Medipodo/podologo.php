@@ -27,7 +27,8 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">  
+  <link rel="stylesheet" href="assets/css/calendar_style.css">
 
   <!-- =======================================================
   * Template Name: Medilab - v4.8.1
@@ -38,7 +39,7 @@
 </head>
 
 <body>
-
+  <script src="assets/js/jquery-3.1.1.min.js"></script> 
   <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
@@ -173,10 +174,13 @@
             <h3>FICHA PACIENTE, BUSCADOR</h3>
             <div class="search_bar">
               <!--<a href="#" class="icon-search"><img src="assets/img/icon_buscar_clientes.png" alt="icon-search"></a>-->
-              <input type="text" id="bar" placeholder="¿A quién buscas?">
+              <input type="text" id="busqueda" name="busqueda"  placeholder="¿A quién buscas?">    
             </div>
-            <br>
-            <table class="content-table">
+            <section id="tabla_resultado"></section>
+            
+              
+            
+            <!--<table class="content-table">
               <thead>
                   <tr>
                       <td>Rut</td>
@@ -210,7 +214,7 @@
                       </td>
                   </tr>
               </tbody>
-            </table>
+            </table>-->
             
             <!-- ======= POPUP o MODAL VER FICHA ======= -->  
             <dialog id="modal" class="modal" >
@@ -451,10 +455,11 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/modal.js"></script>
-  <script src="assets/js/main.js"></script>
-
   
+  <script src="assets/js/modal.js"></script>   
+  <script src="assets/js/jscript_calendar.js"></script> 
+  <script src="assets/js/js_menu_buscador.js"></script>
+  <script src="assets/js/main.js"></script>
   
 
 </body>

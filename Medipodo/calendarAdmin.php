@@ -71,18 +71,15 @@ include 'conexion/db.php';
 <dialog id="modalCalendar" class="modalCalendar">
     <div class="container-modal">
     
-      <p class="myid"></p>
-      <script type="text/javascript">
-        pnom= $('.myid').val();
-        console.log(pnom);
-      </script>
-      
-      <form id="contact" action="conexion/calAdminConnect.php" method="post">
+      <form id="contact" action="/" method="post">
         <h3>Colorlib Contact Form</h3>
         <h4>Contact us for custom quote</h4>
-        
+        <select name="tipo_visita" id="lang">
+          <option value="presencial" >En clinica</option>
+          <option value="domicilio" >A domicilio</option>
+        </select>
         <fieldset>
-          <input placeholder="Nombre" type="text" name="nombre" tabindex="1"  autofocus>
+          <input placeholder="Nombre" type="text" name="nombre"  autofocus>
         </fieldset>
         <fieldset>
           <input placeholder="Apellido" type="text" name="apellido" tabindex="1"  autofocus>

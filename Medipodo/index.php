@@ -340,7 +340,7 @@
     </section><!-- End Services Section -->
 
     <!-- ======= Appointment Section ======= -->
-    <section id="appointment" class="appointment section-bg">
+    <section id="appointment_" class="appointment section-bg">
       <div class="container">
 
         <div class="section-title">

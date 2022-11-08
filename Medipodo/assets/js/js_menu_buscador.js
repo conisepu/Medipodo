@@ -31,3 +31,4 @@ $(document).on('keyup', '#busqueda', function()
 			obtener_registros();
 		}
 });
+

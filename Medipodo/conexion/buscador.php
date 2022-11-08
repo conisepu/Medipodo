@@ -43,11 +43,11 @@ if ($filas> 0)
         '<tbody>
             <tr>
 			    <td>'.$filaCliente['rut'].'-'.$filaCliente['d_verificador'].'</td>
-			    <td>'.$filaCliente['nombre'].'</td>
+			    <td>'.$filaCliente['nombre'].' '.$filaCliente['apellido'].'</td>
 			    <td>aca juntar tablas</td>
                 <td>aca juntar tablas</td>
                 <td> 
-                    <button id="btn-abrir-modal"  type="button" class="btn btn-primary" >
+                    <button id="btn-abrir-modal"  type="button" class="btn btn-primary" onclick="location.href=\'verFichas.php?rut='.$filaCliente['rut'].'&dv='.$filaCliente['d_verificador'].'\'">
                       Ver ficha
                     </button>
                 </td>

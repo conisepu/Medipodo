@@ -71,8 +71,8 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#calendar_sec">Calendario</a></li>
           <li><a class="nav-link scrollto" href="#about">Buscador</a></li>
-          <li><a class="nav-link scrollto" href="#services">Inventario</a></li>
-          <li><a class="nav-link scrollto" href="#">Estado Financiero</a></li>
+          <li><a class="nav-link scrollto" href="inventario.php">Insumos de atencion</a></li>
+          <li><a class="nav-link scrollto" href="estado_financiero.php">Estado Financiero</a></li>
           <!--<li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -217,14 +217,14 @@
             </table>-->
             
             <!-- ======= POPUP o MODAL VER FICHA ======= -->  
-            <dialog id="modal" class="modal" >
-              <!--<div class="modal-content">
+            <!-- <dialog id="modal" class="modal" >
+              <div class="modal-content">
                 <h2>holaa soy modal</h2>
                 <p>ss</p>
                 <p>ss</p>
                 <button id="btn-cerrar-modal" class="closeBtn" >cerrar</button>
                 <button id="btn-cerrar-modal" class="closeBtn">Guardar</button>
-              </div> --> 
+              </div>  
               <div class="container-modal">  
                 <form id="contact" action="#buscador" method="post">
                   <h3>Colorlib Contact Form</h3>
@@ -252,7 +252,7 @@
                   <button id="btn-cerrar-modal" class="closeBtn btn btn-primary" data-submit="...Sending">Cancelar</button>
                 </fieldset>
               </div>           
-            </dialog>
+            </dialog> -->
 
           </div>
         </div>

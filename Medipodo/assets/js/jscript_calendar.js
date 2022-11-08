@@ -1,4 +1,8 @@
 const modalCalendar = document.getElementById('modalCalendar');
+var frm = document.getElementById('contact') || null;
+
+
+
 class Calendar{
     constructor({
         element,
@@ -77,8 +81,12 @@ class Calendar{
                 const params = e.target.title.split('-').map(str => parseInt(str,10));
                 this.#setDate(...params);                 
                 modalCalendar.style.display = "block";
-                document.querySelector('.myid').innerHTML = `${params}`;
-                //location.href='conexion/calAdminConnect.php?=' + e.target.title;
+                // document.querySelector('.myid').innerHTML = `${params}`; //no es necesario
+                
+                if(frm) {
+                    frm.action = 'conexion/calAdminConnect.php?F='+ e.target.title;
+                }
+                //location.href='conexion/calAdminConnect.php?=' + e.target.title;//no es necesario
                 
             }
         });

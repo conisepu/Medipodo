@@ -1,7 +1,4 @@
-<?php 
-include 'conexion/db.php';
 
-?>
   
 <div class="calendar">
   <div class="headerCalendar">
@@ -66,43 +63,4 @@ include 'conexion/db.php';
   </div>
 </div>
 
-
   
-<dialog id="modalCalendar" class="modalCalendar">
-    <div class="container-modal">
-    
-      <form id="contact" action="/" method="post">
-        <h3>Colorlib Contact Form</h3>
-        <h4>Contact us for custom quote</h4>
-        <select name="tipo_visita" id="lang">
-          <option value="presencial" >En clinica</option>
-          <option value="domicilio" >A domicilio</option>
-        </select>
-        <fieldset>
-          <input placeholder="Nombre" type="text" name="nombre"  autofocus>
-        </fieldset>
-        <fieldset>
-          <input placeholder="Apellido" type="text" name="apellido" tabindex="1"  autofocus>
-        </fieldset>
-        <fieldset>
-          <input placeholder="Correo" type="email" name="correo" tabindex="2" >
-        </fieldset>
-        <fieldset>
-          <input placeholder="Celular" type="tel" name="celular" tabindex="3" >
-        </fieldset>
-        <fieldset>
-          <input placeholder="Rut" type="text" name="rutcdv" tabindex="4" >
-        </fieldset>
-        <fieldset>
-          <input placeholder="Edad" type="text" name="edad" tabindex="5" >
-        </fieldset>                
-        <fieldset>
-          <button name="submitSave" type="submit" id="contact-submit">Guardar</button>
-        </fieldset>                  
-      </form>
-      <fieldset>
-        <button id="closeBtnCalendar" class="closeBtnCalendar" >Cancelar</button>
-      </fieldset>
-    </div>           
-</dialog>
-

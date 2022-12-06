@@ -17,9 +17,14 @@ body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 } */
 
+.calendar_sec{
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
 .calendar{
   width: 90vw;
   user-select: none;
+  margin: auto;
 }
 
 /*headerCalendar*/
@@ -80,7 +85,7 @@ body{
   background-color: transparent;
   box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
   color: rgba(0,0,0,0.3);
-  font-size: 2vmin;
+  font-size: 3vmin;
 }
 
 .date.currentMonth{
@@ -96,3 +101,184 @@ body{
   background-color: var(--accent-color);
   color: #fff;
 }
+
+/*////////////////////ALERTA .PHP////////////////////////////*/
+
+/*///////////////////////////////////////////////////////////////////////////////7*/
+
+.contenedor-form { /* modifica visualmente la clase contenedor-form de index.html */
+  position: relative;
+  width: 100%;
+  margin: 140px auto auto;
+  border-radius: 5px;
+  /* padding: 40px; */
+}
+
+
+.contenedor-form .toggle { /* modifica visualmente la clase toggle de index.html*/
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 100px;
+  height: 30px;
+  font-size: 12px;
+  line-height: 25px;
+  text-align: center;
+  border-top: 2px solid #D30909;
+  border-bottom: 2px solid #D30909;
+  transition: all .5s ease;
+  cursor: pointer;
+}
+
+.contenedor-form .toggle span {/*modifica visualmente la clase span dentro de toggle de index.html */
+  letter-spacing: 1px;     
+}
+
+.contenedor-form .toggle:hover {/* le cambia de color a la clase toggle de index.html cuando pasa el mouse por encima*/
+  border-top: 2px solid #3291e6;
+  border-bottom: 2px solid #3291e6;
+}
+
+.contenedor-form .formulario h2 { /* modifica visualmente todo lo que este en h2 de index.html*/
+  margin: 0 0 28px 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.contenedor-form input[type="text"],
+.contenedor-form input[type="password"],
+.contenedor-form input[type="email"],
+.contenedor-form input[type="tel"]{/* modifica visulamente los cuadros de usuario y contraseña en index.html*/
+  outline: none;
+  background: rgba(0, 0, 0, 0.37);
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  color: #ffffff;
+  border: none;
+  border-radius: 2px;
+  border-bottom: 4px solid #D30909;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0 0 20px 0;
+  transition: all .5s ease;
+}
+
+.contenedor-form input[type="text"]:focus,
+.contenedor-form input[type="password"]:focus,
+.contenedor-form input[type="email"]:focus,
+.contenedor-form input[type="tel"]:focus{ /*los cuadros cambian de color cuando se les hace click*/
+
+  border-bottom: 4px solid #3291e6;
+}
+
+.contenedor-form ::placeholder{/*cambia el color de la clase placeholder de index.html*/
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contenedor-form input[type="submit"]{/*modifica visualmente la clase submit de index.html(inisio sesion)*/
+  background: #D30909;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 10px 0;
+  font-weight: normal;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .4s ease;
+}
+
+.contenedor-form input[type="submit"]:hover{ /*cambia el color de la clase submit de index cuando pasa el mouse por ahi */
+  background: rgba(0,110,205, 0.8);
+}
+
+.contenedor-form .formulario1{
+  padding: 40px;
+  display: block;
+}
+.contenedor-form .formulario2{
+  display: none;
+}
+
+/*////////////////////DIAS AUSENTES .PHP////////////////////////////*/
+.contenedor_agendar{
+  margin-top: 250px; ;
+}
+.agendar label {
+  display: block;
+  font: 1rem 'Fira Sans', sans-serif;
+}
+
+.agendar input,
+.agendar label {
+  margin: .4rem 0;
+}
+
+/*////////////////////SemanaAdin .PHP////////////////////////////*/
+#week{
+  background: url("../img/imagen.png") top center;
+  background-size: cover;
+}
+
+.semana_cont{
+  margin-top: 7.5rem;
+  border-style: solid;
+  background-color:  #1977ccb0 ;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.semana_cont .col-sm h4{
+  font-size: 1.5rem ;
+  font-weight: bold;
+  text-align: center;
+  min-width: 15vmin;
+  border-bottom: solid #000000;
+}
+
+.semana_cont .hora{
+  border-left: solid #000000;
+  font-weight: 600;
+}
+
+.semana_cont .hora p{
+  margin-top: revert;
+  font-size: 18px;
+  margin-left: 5px;
+  
+}
+
+.semana_cont .nombre{
+  font-size: 18px;
+  margin-right: 5px;
+  font-weight: 600;
+}
+
+.weekdays{
+  width: auto;
+}
+.weekdays input[type="week"]{
+  background-color: #1977ccb0 ;
+  padding: 15px;
+  position: absolute;
+  font-family: "Roboto Mono", monospace ;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+::-webkit-calendar-picker-indicator{
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+

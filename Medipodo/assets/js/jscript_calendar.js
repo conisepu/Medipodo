@@ -1,5 +1,5 @@
-const modalCalendar = document.getElementById('modalCalendar');
-var frm = document.getElementById('contact') || null;
+//const modalCalendar = document.getElementById('modalCalendar');
+//var frm = document.getElementById('contact') || null;
 
 
 
@@ -80,14 +80,24 @@ class Calendar{
                 //console.log(e.target.title); //si hace click en la fecha se marca // buscar como se puede usar con php
                 const params = e.target.title.split('-').map(str => parseInt(str,10));
                 this.#setDate(...params);                 
-                modalCalendar.style.display = "block";
-                // document.querySelector('.myid').innerHTML = `${params}`; //no es necesario
-                
-                if(frm) {
-                    frm.action = 'conexion/calAdminConnect.php?F='+ e.target.title;
+                //modalCalendar.style.display = "block";
+                //document.getElementById("demo").innerHTML = e.target.title; //no es necesario
+                // if(frm) {
+                //     frm.action = 'conexion/calAdminConnect.php?F='+ e.target.title;
+                // }
+
+                var elmId = $(".calendar_sec").attr("id");//la clase calendar_sec que pertenece a podologo.php como index.php regresa el valor del id, que son distintos respectivamente
+                var name_calendar = $(".calendar_sec").attr("name"); 
+                //alert( name_calendar);
+                if(elmId == "calendar_secP"){
+                    //alert("es la pagina de podologo");
+                    location.href='agendacionAdmin.php?fecha=' + e.target.title;
+                }else if(elmId == "calendar_sec" && name_calendar == ""){ //es cuando index pero solo es del publico sin que lo vea el podologo
+                    //alert("es la pagina de index");
+                    location.href='agendacionPublico.php?fecha=' + e.target.title;
+                }else if(elmId == "calendar_sec" && name_calendar == "admin"){ // es cuando es index pero lo esta viendo el podologo
+                    location.href='agendacionPublico.php?fecha=' + e.target.title +'&admin=admin';
                 }
-                //location.href='conexion/calAdminConnect.php?=' + e.target.title;//no es necesario
-                
             }
         });
     }

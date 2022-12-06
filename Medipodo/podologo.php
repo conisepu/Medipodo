@@ -1,3 +1,12 @@
+<?php
+    // ini_set('display_errors', 1);
+    // ini_set('display_startup_errors', 1);
+    // error_reporting(E_ALL);
+include 'funciones/rol_admin.php';
+include("conexion/db.php");
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,13 +50,14 @@
 <body>
   <script src="assets/js/jquery-3.1.1.min.js"></script> 
   <!-- ======= Top Bar ======= -->
+
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:patyirigoin@yahoo.es">patyirigoin@yahoo.es</a>
-        <i class="bi bi-phone"></i> +569 72125596
+        <i class="bi bi-box-arrow-in-left"></i><a href="index.php?admin=admin">ir a pag. publica</a>
         <i class="bi bi-person-circle"></i> Bienvenida Patricia.
-        <i class="bi bi-box-arrow-left"></i> <a href="index.php">Cerrar Sesión</a>
+        <i class="bi bi-box-arrow-left"></i> <a href="login.php?cerrar_sesion=true">Cerrar Sesión</a>
+        <i class="bi bi-bag-dash"></i> <a style="cursor: pointer;" onclick="changepass()">Cambiar contraseña</a>
       </div>
       <!--<div class="d-none d-lg-flex social-links align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -58,110 +68,107 @@
     </div>
   </div>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="podologo.php">MediPOD</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+ <!-- ======= Header ======= -->
+ <header id="header" class="fixed-top">
+   <div class="container d-flex align-items-center">
+     <h1 class="logo me-auto"><a href="podologo.php">MediPOD</a></h1>
+     <?php 
+      // $consulta = $con->query("SELECT atiende FROM atencionpodologica.doctor");
+      // if ($atiende = $consulta->fetch_assoc()) {
+      //   if($atiende['atiende'] == 1){
+      //     //significa que SI esta atendiendo
+      //     $idbutton = "1";
+      //     $msj="No Quiero atender";
+      //   }else if($atiende['atiende'] == 0){
+      //     //significa que NO esta atendiendo
+      //     $idbutton = "0";
+      //     $msj="voy a atender";
+      //   }              
+      // }
+    ?>
+     <!-- <button id="<?php //echo $idbutton ?>" onclick="DeshabilitarCalendarioPublico(this.id)" class="buttondes"><?php //echo $msj ?></button> -->
+     <!-- Uncomment below if you prefer to use an image logo -->
+     <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+     <nav id="navbar" class="navbar order-last order-lg-0">
+       <ul>
+         <li><a class="nav-link scrollto" href="podologo.php#week">Home</a></li>
+         <li><a class="nav-link scrollto" href="podologo.php#calendar_secP">Calendario</a></li>
+         <li><a class="nav-link scrollto" href="podologo.php#about">Buscador</a></li>
+         <li><a id="inv" class="nav-link scrollto" href="inventario.php">Insumos de atención</a></li>
+         <li><a id="fin" class="nav-link scrollto" href="estado_financiero.php">Estado Financiero</a></li>
+         <li><a id="aus" class="nav-link scrollto" href="diasAusentes.php">Ausentarse por motivo</a></li>
+       </ul>
+       <i class="bi bi-list mobile-nav-toggle"></i>
+     </nav><!-- .navbar
+     <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>  -->
+   </div>
+ </header><!-- End Header -->
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#calendar_sec">Calendario</a></li>
-          <li><a class="nav-link scrollto" href="#about">Buscador</a></li>
-          <li><a class="nav-link scrollto" href="inventario.php">Insumos de atencion</a></li>
-          <li><a class="nav-link scrollto" href="estado_financiero.php">Estado Financiero</a></li>
-          <!--<li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>-->
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar
-
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>  -->
-
-    </div>
-  </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container">
+  <!--<section id="hero" class="d-flex align-items-center">
+     <div class="container">
       <h1>Bienvenidos a MediPOD</h1>
       <h2>Patricia Irigoin Figueroa, "comentario sobre el trabajo que hace"</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
-    </div>
-  </section><!-- End Hero -->
+    </div> 
+  </section>--><!-- End Hero -->
 
   <main id="main">
+    <?php
+      $noti = 'none';
+      $npass = 'none';
+      if(isset($_GET['noti'])){
+          if($_GET['noti'] == 'T' ){
+            $noti = 'block';
+          }elseif($_GET['noti'] == 'T0' ){
+            $npass = 'block';
+          }
+      }
+    ?>
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form action="conexion/calAdminConnect.php" method="post">      
+          
+          <label for="">Nueva contraseña</label>
+          <input id="npass" name="npass" type="password" value="" required>
 
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>Why Choose Medilab?</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-              </p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
-          </div>
-        </div>
-
+          <button name="cambiarpass" type="submit" id="contact-submit">Guardar</button>              
+        </form>
       </div>
+    </div>   
+    <!-- ======= Why Us Section ======= -->
+    <section id="week" class="why-us">
+      <div id="alertapass" class="alert show password" style="display:<?php echo $npass?>">
+        <span class="fas fa-check-circle password"></span>
+        <span class="msgalert password">Se cambio contraseña correctamente</span>
+        <span class="close-btn-alert">
+            <span class="fas fa-times"></span>
+        </span>
+      </div>
+      <?php include 'semanaAdmin.php' ?>
     </section><!-- End Why Us Section -->
 
     <!-- ======= Calendar Section======= -->
-    <section id="calendar_sec" class="calendar_sec">
+    <section id="calendar_secP" class="calendar_sec">
+      <?php //include 'funciones/alerta.php' ?>
+      
+      <div id="alertagenda" class="alert show" style="display:<?php echo $noti?>">
+          <span class="fas fa-check-circle"></span>
+          <span class="msgalert">Funciono correctamente</span>
+          <span class="close-btn-alert">
+              <span class="fas fa-times"></span>
+          </span>
+      </div>
+      <script>
+        $('.close-btn-alert').click(function(){
+          document.getElementById("alertagenda").style.display = "none";
+          document.getElementById("alertapass").style.display = "none";
+        });
+      </script>
       <?php include 'calendarAdmin.php' ?>
     </section><!-- End Calendar Section -->
 
@@ -177,82 +184,6 @@
               <input type="text" id="busqueda" name="busqueda"  placeholder="¿A quién buscas?">    
             </div>
             <section id="tabla_resultado"></section>
-            
-              
-            
-            <!--<table class="content-table">
-              <thead>
-                  <tr>
-                      <td>Rut</td>
-                      <td>Nombre Paciente</td>
-                      <td>Proxima fecha de atencion</td>
-                      <td>ultima fecha de atencion</td>
-                      <td>Mas links</td>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>60%</td>
-                      <td>blablabla bla</td>
-                      <td>granjero</td>
-                      <td>granjero</td>
-                      <td> 
-                        <button id="btn-abrir-modal"  type="button" class="btn btn-primary" >
-                          Ver ficha
-                        </button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>40%</td>
-                      <td>blablabla bla  2</td>
-                      <td>empresario</td>
-                      <td>granjero</td>
-                      <td> 
-                        <button id="btn-open-modal"  type="button" class="btn btn-primary" >
-                          Ver ficha
-                        </button>
-                      </td>
-                  </tr>
-              </tbody>
-            </table>-->
-            
-            <!-- ======= POPUP o MODAL VER FICHA ======= -->  
-            <!-- <dialog id="modal" class="modal" >
-              <div class="modal-content">
-                <h2>holaa soy modal</h2>
-                <p>ss</p>
-                <p>ss</p>
-                <button id="btn-cerrar-modal" class="closeBtn" >cerrar</button>
-                <button id="btn-cerrar-modal" class="closeBtn">Guardar</button>
-              </div>  
-              <div class="container-modal">  
-                <form id="contact" action="#buscador" method="post">
-                  <h3>Colorlib Contact Form</h3>
-                  <h4>Contact us for custom quote</h4>
-                  <fieldset>
-                    <input placeholder="Your name" type="text" tabindex="1"  autofocus>
-                  </fieldset>
-                  <fieldset>
-                    <input placeholder="Your Email Address" type="email" tabindex="2" >
-                  </fieldset>
-                  <fieldset>
-                    <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" >
-                  </fieldset>
-                  <fieldset>
-                    <input placeholder="Your Web Site (optional)" type="url" tabindex="4" >
-                  </fieldset>
-                  <fieldset>
-                    <textarea placeholder="Type your message here...." tabindex="5" ></textarea>
-                  </fieldset>                
-                  <fieldset>
-                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Guardar</button>
-                  </fieldset>                  
-                </form>
-                <fieldset>
-                  <button id="btn-cerrar-modal" class="closeBtn btn btn-primary" data-submit="...Sending">Cancelar</button>
-                </fieldset>
-              </div>           
-            </dialog> -->
 
           </div>
         </div>
@@ -261,47 +192,8 @@
     </section><!-- End About Section -->
 
     <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
-      <div class="container">
+    
 
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="fas fa-user-md"></i>
-              <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Doctors</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-            <div class="count-box">
-              <i class="far fa-hospital"></i>
-              <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Departments</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="fas fa-flask"></i>
-              <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Research Labs</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="fas fa-award"></i>
-              <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Awards</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Counts Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -455,8 +347,57 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  
-  <script src="assets/js/modal.js"></script>   
+  <script>
+    function DeshabilitarCalendarioPublico(idbutton) { //1->0
+      //alert(idbutton)//1
+      $('.buttondes').html('');
+      if(idbutton == '1'){
+            //esta atendiendo, pero no quiere atender
+            $('.buttondes').html('Voy a atender');            
+        }else if(idbutton == '0'){
+            //no esta atendiendo, pero quiere atender
+            $('.buttondes').html('No quiero atender');
+        }
+      $.ajax({
+        type: 'post',
+        url: 'conexion/extensionFicha.php', //Aqui va tu ruta php
+        data: {idbutton: idbutton}, //Aqui tus variables javascript que asignaste arriba
+        success:function(data){
+          //$('#precio').html(data);
+          //alert(data);
+          data = $.parseJSON(data);
+          document.getElementById(idbutton).id = data.atencionresult;
+        },
+        
+      });
+    }
+
+    function fetchweek(week){
+      //alert(week);
+      $.ajax({
+        url : 'conexion/extensionFicha.php',
+        type : 'POST',
+        dataType : 'html',
+        data : { week: week },
+        })
+
+      .done(function(resultado){
+        $("#semanacont").html(resultado);
+      })
+      .fail(function(){
+          console.log("error");
+      });
+    }
+
+    function changepass(){
+      document.getElementById("myModal").style.display = "block";
+      var span = document.getElementsByClassName("close")[0];
+      span.onclick = function() {
+        document.getElementById("myModal").style.display = "none";
+      }
+    }
+  </script>
+
   <script src="assets/js/jscript_calendar.js"></script> 
   <script src="assets/js/js_menu_buscador.js"></script>
   <script src="assets/js/main.js"></script>
